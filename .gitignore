@@ -1,0 +1,19 @@
+# Created by .gitignore support plugin (hsz.mobi)
+### WordPress template
+*.log
+.htaccess
+sitemap.xml
+sitemap.xml.gz
+wp-content/advanced-cache.php
+wp-content/backup-db/
+wp-content/backups/
+wp-content/blogs.dir/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/wp-cache-config.php
+.idea
+wp-config-local.php
+wp-content/themes/vpnmentor/html-markUps/
+*~
+logs
+.DS_Store

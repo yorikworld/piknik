@@ -1,0 +1,10 @@
+/*
+Theme Name:     Piknik
+Theme URI:      http: //example.com/
+Description:    Дочерняя тема для темы philips
+Author:         Yuri Korkishko
+Author URI:     http: //example.com/about/
+Template:       philips
+Version:        0.1.0
+*/
+@import url("../philips/style.css");
