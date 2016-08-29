@@ -32,9 +32,16 @@ get_header(); ?>
                                 if ($the_query->have_posts()) {
                                     while ($the_query->have_posts()) {
                                         $the_query->the_post();?>
-                                        <div class="col-sm-4 col-md-4 col-lg-3">
+                                        <div class="col-xs-6 col-sm-3 col-md-4 col-lg-3">
                                             <div><?php the_title(); ?></div>
+                                            <?php if ( has_post_thumbnail() ) {
+                                                the_post_thumbnail('thumbnail');
+                                            }else{
+                                                $src = get_stylesheet_directory_uri().'/images/noimage-150x150.jpg';
+                                                echo '<a href="'.get_the_permalink().'" title="Крабовые палочки"><img width="150" height="150" src="'.$src.'" class="attachment-thumbnail size-thumbnail wp-post-image" alt="no-image"></a>';
+                                            } ?>
                                         </div>
+
                                     <?php }
                                     wp_reset_postdata();
                                 } else {

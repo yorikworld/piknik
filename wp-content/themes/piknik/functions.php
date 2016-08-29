@@ -10,7 +10,8 @@ function create_post_type()
                 'name'          => __('Меню'),
                 'singular_name' => __('Меню')
             ),
-            'public'      => true,
+            'public'   => true,
+            'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
         )
     );
 }
@@ -52,5 +53,14 @@ function create_taxonomy(){
     );
     register_taxonomy('product_tax', array('product_menu'), $args );
 }
+
+function my_post_image_html( $html, $post_id, $post_image_id ) {
+
+    $html = '<a href="' . get_permalink( $post_id ) . '" title="' . esc_attr( get_post_field( 'post_title', $post_id ) ) . '">' . $html . '</a>';
+    return $html;
+
+}
+//add_theme_support( 'post-thumbnails' );
+add_filter( 'post_thumbnail_html', 'my_post_image_html', 10, 3 );
 add_action('init', 'create_post_type');
 add_action( 'init', 'create_taxonomy', 0 );
