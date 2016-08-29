@@ -33,7 +33,7 @@ define('DB_USER', 'piknike3_db');
 define('DB_PASSWORD', 'hcX8rvjc');
 
 /** MySQL hostname */
-define('DB_HOST', 'localhost');
+define('DB_HOST', 'piknike3.mysql.ukraine.com.ua');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
