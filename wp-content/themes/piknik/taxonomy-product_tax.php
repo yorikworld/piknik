@@ -15,7 +15,10 @@ get_header(); ?>
                             </header>
                             <div class="entry-content">
                                 <?php
+                                $paged = get_query_var('paged') ? get_query_var('paged') : 1;
                                 $args = array(
+                                    'posts_per_page' => 3,
+                                    'paged' => $paged,
                                     'post_type'   => 'product_menu',
                                     'post_status' => 'publish',
                                     'tax_query'   => array(
@@ -48,11 +51,15 @@ get_header(); ?>
                                     // no posts found
                                 }
                                 ?>
+
                             </div>
                             <footer class="entry-footer">
                                 <?php edit_post_link(esc_html__('Edit', 'philips'), '<span class="edit-link">',
                                     '</span>'); ?>
                             </footer><!-- .entry-footer -->
+                            <?php if(function_exists('wp_pagenavi')) {
+                                wp_pagenavi( array( 'query' => $the_query ) );
+                            } ?>
                         </article>
 
 

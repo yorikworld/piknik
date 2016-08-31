@@ -1,7 +1,6 @@
 # Created by .gitignore support plugin (hsz.mobi)
 ### WordPress template
 *.log
-.htaccess
 sitemap.xml
 sitemap.xml.gz
 wp-content/advanced-cache.php
