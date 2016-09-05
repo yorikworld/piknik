@@ -60,6 +60,27 @@ function my_post_image_html( $html, $post_id, $post_image_id ) {
     return $html;
 
 }
+function the_excerpt_max_charlength($charlength) {
+    $excerpt = get_the_excerpt();
+    if($excerpt == ''){
+        $excerpt = get_the_content();
+    }
+    $charlength++;
+
+    if ( mb_strlen( $excerpt ) > $charlength ) {
+        $subex = mb_substr( $excerpt, 0, $charlength - 5 );
+        $exwords = explode( ' ', $subex );
+        $excut = - ( mb_strlen( $exwords[ count( $exwords ) - 1 ] ) );
+        if ( $excut < 0 ) {
+            echo mb_substr( $subex, 0, $excut );
+        } else {
+            echo $subex;
+        }
+        echo '[...]';
+    } else {
+        echo $excerpt;
+    }
+}
 //add_theme_support( 'post-thumbnails' );
 add_filter( 'post_thumbnail_html', 'my_post_image_html', 10, 3 );
 add_action('init', 'create_post_type');
